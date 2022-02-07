@@ -1,0 +1,40 @@
+﻿<div class="modal fade" role="dialog" id="appInput" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="form1" novalidate="novalidate" autocomplete="off">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add/Edit Appointment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="" for="title">Title</label>
+                        <input class="form-control" id="title" maxlength="100" placeholder="enter your title...." />
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="Description">Description</label>
+                        <textarea type="text" class="form-control" id="description" placeholder="enter your Descriptions...."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="Description">Start Date</label>
+                        <input type="datetime" class="form-control" id="appointmentDate">
+                        <input type="hidden" id="hdID" />
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="title">Select Patient</label>
+                        <select type="text" class="form-control" id="patientId" asp-items="@(new SelectList(ViewBag.PatinetList,"Id","Name"))">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="title">Select Duration...</label>
+                        <select type="text" class="form-control" id="duration" asp-items="@Helpers.Hepler.GetTimeDropDown()">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="onModelClose()">Cancel</button>
+                    <button type="button" class="btn btn-outline-success" id="btnSumit" onclick="onModalSumit()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
